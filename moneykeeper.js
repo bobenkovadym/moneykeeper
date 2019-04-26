@@ -1,4 +1,17 @@
-'use strict';
+"use strict";
+
+let money, time;
+
+const appData = {
+    budget: money,
+    timeData: time,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    savings: false
+};
+
+
 let startBtn = document.getElementById("start"),
 budgetValue = document.getElementsByClassName('budget-value')[0],
 dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
@@ -20,7 +33,6 @@ percentValue = document.querySelector('.choose-percent'),
 yearValue = document.querySelector('.year-value'),
 monthValue = document.querySelector('.month-value'),
 dayValue = document.querySelector('.day-value'),
-money, time;
 
 startBtn.addEventListener('click', function() {
   time = prompt ("Введите дату в формате YYYY-MM-DD", "2019-04-11");
@@ -104,26 +116,15 @@ sumValue.addEventListener('input', function() {
       yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
   }
 });
-percentValue.addEventListener('input', function() {
+percentValue.addEventListener('input', () => {
   if (appData.savings == true) {
   let summ = +sumValue.value,
       percent = +percentValue.value;
 
-      appData.monthIncome = summ/100/12*percent;
-      appData.yearIncome = summ/100*percent;
+        appData.monthIncome = summ/100/12*percent;
+        appData.yearIncome = summ/100*percent;
 
-      monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
-      yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
-  }
+        monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
+        yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
+    }
 });
-
-
-let appData = {
-    budget: money,
-    timeData: time,
-    expenses: {},
-    optionalExpenses: {},
-    income: [],
-    savings: false
-};
-//smth
