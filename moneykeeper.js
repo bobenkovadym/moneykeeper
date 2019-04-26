@@ -126,3 +126,4 @@ let appData = {
     income: [],
     savings: false
 };
+//smth
